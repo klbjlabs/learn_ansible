@@ -1,0 +1,13 @@
+#[group_name]
+#host-01 ansible_ssh_host=138.197.96.145
+#host-02 ansible_ssh_host=165.227.77.133
+#host-03 ansible_ssh_host=165.227.67.102
+
+[all:vars]
+# for python3
+ansible_python_interpreter=/usr/bin/python3
+
+[all]
+host-01 ansible_ssh_host=138.197.96.145
+host-02 ansible_ssh_host=165.227.77.133
+host-03 ansible_ssh_host=165.227.67.102
