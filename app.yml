@@ -1,6 +1,6 @@
 ---
 
-- name: ansible palybook
+- name: ansible playbook
   hosts: all
   gather_facts: false
   remote_user: root
