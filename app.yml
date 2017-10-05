@@ -12,3 +12,8 @@
         user: root
         key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
         state: present
+    - name: install tig package
+      apt:
+        name: tig
+        state: latest       # install the latest version
+        # state: removed    # remove the package
