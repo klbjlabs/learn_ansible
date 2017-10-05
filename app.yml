@@ -8,6 +8,8 @@
   tasks:
     - name: test connect
       ping: 
+      tags:
+        - test
     - name: ssh key auth
       authorized_key:
         user: root
