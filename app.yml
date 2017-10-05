@@ -2,6 +2,7 @@
 
 - name: ansible palybook
   hosts: all
+  gather_facts: false
   remote_user: root
   # become: yes
   tasks:
@@ -17,3 +18,16 @@
         name: tig
         state: latest       # install the latest version
         # state: removed    # remove the package
+    - name: copy file to target hosts
+      copy:
+        src: ./files/hello.txt
+        dest: /root/
+    - name: install docker package
+      apt:
+        name: docker.io
+        state: present
+    - name: start docker service
+      service:
+        name: docker
+        state: stopped    # [ started | stopped | restarted | reloaded ]
+        enabled: true
