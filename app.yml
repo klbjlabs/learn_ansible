@@ -16,12 +16,13 @@
     - name: install tig package
       apt:
         name: tig
-        state: latest       # install the latest version
-        # state: removed    # remove the package
+        state: latest       # [ installed | latest | removed | absent | present | build-dep ]
     - name: copy file to target hosts
       copy:
         src: ./files/hello.txt
         dest: /root/
+      notify:               # only execute on the action state is changed
+        - say hello
     - name: install docker package
       apt:
         name: docker.io
@@ -31,3 +32,11 @@
         name: docker
         state: stopped    # [ started | stopped | restarted | reloaded ]
         enabled: true
+  handlers:
+    - name: restart docker
+      service: 
+        name: docker
+        state: restarted
+    - name: say hello
+      debug:
+        msg: hello !
