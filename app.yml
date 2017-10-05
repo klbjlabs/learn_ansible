@@ -1,0 +1,14 @@
+---
+
+- name: ansible palybook
+  hosts: all
+  remote_user: root
+  # become: yes
+  tasks:
+    - name: test connect
+      ping: 
+    - name: ssh key auth
+      authorized_key:
+        user: root
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        state: present
