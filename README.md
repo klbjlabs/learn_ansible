@@ -11,3 +11,4 @@ $ ansible-galaxy init docker
 
 ## Learning Resources
 - [Ansible入门](http://getansible.com/)
+- [骡骡的Blog](http://www.cnblogs.com/liujitao79/tag/ansible/)
