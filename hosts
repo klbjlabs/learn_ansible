@@ -11,3 +11,6 @@ ansible_python_interpreter=/usr/bin/python3
 host-01 ansible_ssh_host=165.227.54.72
 host-02 ansible_ssh_host=138.197.205.59
 host-03 ansible_ssh_host=138.68.225.235
+
+[mis]
+host-04	ansible_ssh_host=172.22.119.114

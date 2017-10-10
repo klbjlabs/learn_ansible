@@ -1,7 +1,7 @@
 ---
 
 - name: ansible playbook
-  hosts: all
+  hosts: mis
   gather_facts: false
   remote_user: root
   # become: yes
@@ -34,6 +34,19 @@
         name: docker
         state: stopped    # [ started | stopped | restarted | reloaded ]
         enabled: true
+    - name: add user
+      user:
+        name: martin
+        state: present    # [ present | absent]
+        # groups: wheel,group2
+        # remove: yes
+        append: yes
+        password: '$6$Oj0b5EbN$5rOHIh86hRFx70CUeVIzdDRgOhic8sKhLcj54VKdk/ogsqOeXulYywYI2YRE.EmRDdzMUifroh/x4GzmM1fuK.' # sha-512
+      tags:
+        - user
+
+
+
   handlers:
     - name: restart docker
       service: 
