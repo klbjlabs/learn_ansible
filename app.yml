@@ -9,16 +9,9 @@
     user_name: 'martin'
     hosts: mis
   tasks:
-    - name: Debian Family
-      debug:
-        msg: 'Family is Debian!'
-      when: ansible_os_family == 'Debian'
-      tags:
-        - test
-    - name: test connect
-      ping: 
-      tags:
-        - test
+    # [DEPRECATION WARNING]: The use of 'include' for tasks has been deprecated.
+    # Use 'import_tasks' for static inclusions or 'include_tasks' for dynamic inclusions.
+    - include: test.yml
     - name: ssh key auth
       authorized_key:
         user: root

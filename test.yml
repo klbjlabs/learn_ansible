@@ -1,0 +1,11 @@
+---
+- name: Debian Family
+  debug:
+    msg: 'Family is Debian!'
+  when: ansible_os_family == 'Debian'
+  tags:
+    - test
+- name: test connect
+  ping: 
+  tags:
+    - test
