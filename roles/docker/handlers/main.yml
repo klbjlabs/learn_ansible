@@ -1,0 +1,9 @@
+---
+# handlers file for docker
+- name: restart docker
+  service: 
+    name: docker
+    state: restarted
+- name: say hello
+  debug:
+    msg: hello !

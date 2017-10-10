@@ -46,32 +46,5 @@
         password: '$6$Oj0b5EbN$5rOHIh86hRFx70CUeVIzdDRgOhic8sKhLcj54VKdk/ogsqOeXulYywYI2YRE.EmRDdzMUifroh/x4GzmM1fuK.' # sha-512
       tags:
         - user
-    - name: Install common tools
-      apt:
-        name: '{{ item }}'
-        state: latest
-      with_items:
-        - tree
-        - tig
-        - zip
-      tags:
-        - common
-    - name: Install common tools in Hashs
-      apt:
-        name: '{{ item.name }}'
-        state: '{{ item.state }}'
-      with_items:
-        - { name: tree, state: latest }
-        - { name: tig, state: latest }
-        - { name: zip, state: latest }
-      tags:
-        - tools
-
-  handlers:
-    - name: restart docker
-      service: 
-        name: docker
-        state: restarted
-    - name: say hello
-      debug:
-        msg: hello !
+  roles:
+    - docker
