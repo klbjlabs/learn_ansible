@@ -53,8 +53,16 @@
         password: '$6$Oj0b5EbN$5rOHIh86hRFx70CUeVIzdDRgOhic8sKhLcj54VKdk/ogsqOeXulYywYI2YRE.EmRDdzMUifroh/x4GzmM1fuK.' # sha-512
       tags:
         - user
-
-
+    - name: Install common tools
+      apt:
+        name: '{{ item }}'
+        state: latest
+      with_items:
+        - tree
+        - tig
+        - zip
+      tags:
+        - common
 
   handlers:
     - name: restart docker
