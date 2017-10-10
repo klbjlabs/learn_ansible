@@ -1,11 +1,20 @@
 ---
 
 - name: ansible playbook
-  hosts: mis
-  gather_facts: false
+  hosts: '{{ hosts }}'
+  # gather_facts: false
   remote_user: root
   # become: yes
+  vars:
+    user_name: 'martin'
+    hosts: mis
   tasks:
+    - name: Debian Family
+      debug:
+        msg: 'Family is Debian!'
+      when: ansible_os_family == 'Debian'
+      tags:
+        - test
     - name: test connect
       ping: 
       tags:
@@ -36,7 +45,7 @@
         enabled: true
     - name: add user
       user:
-        name: martin
+        name: '{{ user_name }}'
         state: present    # [ present | absent]
         # groups: wheel,group2
         # remove: yes
