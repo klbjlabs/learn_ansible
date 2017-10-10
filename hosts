@@ -5,6 +5,8 @@
 
 [all:vars]
 # for python3
+# ansible_user=root			# ssh user
+# ansible_ssh_pass=0		# ssh password
 ansible_python_interpreter=/usr/bin/python3
 
 [all]
@@ -14,3 +16,6 @@ host-03 ansible_ssh_host=138.68.225.235
 
 [mis]
 host-04	ansible_ssh_host=172.22.119.114
+
+# [other]
+# 165.227.54.72:29922		# ip:port
